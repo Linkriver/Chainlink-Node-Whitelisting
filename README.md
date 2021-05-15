@@ -33,16 +33,16 @@ SELECT * FROM initiators;
 
 ### 4 - Whitelist requesters
 
-All of your node's jobs are displayed and you can whitelist contract addresses by adding them to the "requesters"
+All of your node's jobs are displayed in separate rows and you can whitelist contract addresses by adding them to the jobs' "requesters" cells.
 
-Whitlist every runlog job:
-```bash
-UPDATE initiators SET requesters='$ADDRESS1,$ADDRESS2,$ADDRESS3' WHERE type ='runlog';
-```
-
-Whitelist seperate job Specs-ID's
+Edit whitelist for a single job
 ```bash
 UPDATE initiators SET requesters='$ADDRESS' WHERE job_spec_Id='$JOBSPECID';
+```
+
+Edit whitelist for every RunLog job:
+```bash
+UPDATE initiators SET requesters='$ADDRESS1,$ADDRESS2,$ADDRESS3' WHERE type ='runlog';
 ```
 
 Here is an example how to list 2 diffrent addresses for onw specific JobSpec:
