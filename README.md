@@ -1,31 +1,31 @@
-# Chainlink node whitelisting
+# Chainlink node requester whitelisting
 
 ## Why?
-Node operators can register their nodes and jobs on https://market.link to make it easier for developers to find the right oracle on any chain that transmits data according to their needs. Depending on the network and its gas fees, publicly listed jobs could be abused if the callback function used a huge amount of gas units resulting in transactional costs exceeding the set oracle payment or just by. Therefore, node operators can manually limit the permission by adding entitled requesters’ smart contract addresses to the node’s database.
+Node operators can register their nodes and jobs on https://market.link to make it easier for developers to find the right oracle on any chain that transmits data according to their projects' needs. Nodes can therefore become targets of DoS attacks or requests with functions requiring huge amount of gas units resulting in transactional costs exceeding the set oracle payment. Therefore, node operators can manually limit the permission for direct request job runs by adding entitled requesters to the node’s database.
 
 ## How?
 
-### 1 - install PostgreSQL on your host
+### 1 - Install PostgreSQL on your host
 
-First of all you need to install postgres on your host in order to connect to your PostgreSQL server and database
+First of all you need to install the PostgreSQL client on your host in order to connect to your PostgreSQL server and database.
 
-here is the guide to install Postres on Linux systems (Linux,Ubuntu):
+Install PostreSQL on Ubuntu:
 ```bash
 sudo apt-get install postgresql-client
 ```
 
-For other OS have a look here: https://www.compose.com/articles/postgresql-tips-installing-the-postgresql-client/
+PostgreSQL for other Operating Systems: https://www.postgresql.org/download/
 
-### 2 - connect to your PostgreSQL databse
-Your are need to connect to the database with the same USER that the chainlink node uses. You are able to connect and edit the database meanwhile the node is running, because the User just lock the database for "writing"
+### 2 - Connect to your PostgreSQL databse
+Your can connect to the database with the same USER that the chainlink node uses. You are able to connect and edit the database meanwhile the node is running, because the User just lock the database for "writing"
 
 ```bash
 psql "host=$YOURIP sslmode=disable dbname=$DBNAME user=$USERNAME password=$PASSWORD"
 ```
-If you have your PostgreSQL server inside of a private subnet, you are able to connect with this command if you install the postgres client on an Bastion-Host, in order to communicate with private IP's
-### 3 - direct to the Initiators table
+If your PostgreSQL server runs in a private subnet, you are able to connect with this command if you install the postgres client on an Bastion-Host, in order to communicate with private IP's
+### 3 - Navigate to the "initiators" table
 
-In order to change or set requester you need to open the initators table
+In order to add or remove requesters you need to access the "initators" table:
 
 ```bash
 SELECT * FROM initiators;
@@ -33,7 +33,7 @@ SELECT * FROM initiators;
 
 ### 4 - Whitelist requesters
 
-You see now the full list of all your job specs and are able to whitlist addresses there that appear than in the requesters row
+All of your node's jobs are displayed and you can whitelist contract addresses by adding them to the "requesters"
 
 Whitlist every runlog job:
 ```bash
