@@ -1,7 +1,7 @@
 # Chainlink node requester whitelisting
 
 ## Why?
-Node operators can register their nodes and jobs on https://market.link to make it easier for developers to find a suitable oracle on any blockchain that transmits data according to their projects' needs. Nodes can therefore become targets of DoS attacks or requests requiring huge amounts of gas units resulting in transaction costs exceeding the set oracle payment. Therefore, node operators are encourged to manually restrict the permissions for direct request job runs on mainnets by adding authorized requesters to the node’s database.
+Node operators might want to promote their nodes and jobs to make it easier for developers to find a suitable oracle on any blockchain that transmits data according to their projects' needs. Nodes can therefore become targets of DoS attacks or requests requiring huge amounts of gas units resulting in transaction costs exceeding the set oracle payment. Therefore, node operators are encourged to manually restrict the permissions for direct request job runs on mainnets by adding authorized requesters to the node’s database.
 
 ## How?
 
